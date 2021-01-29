@@ -11,10 +11,10 @@ const Orm = {
     editBurger: function(newBurgName, newDevBoo, burgerID) {
       var queryString =
         "UPDATE burgers SET burger_name = '?', devoured = ? WHERE id = ?";
-  
+      var newBurgNameString = toString(newBurgName);
       connection.query(
         queryString,
-        [newBurgName, newDevBoo, burgerID],
+        [newBurgNameString, newDevBoo, burgerID],
         function(err, result) {
           if (err) throw err;
           return result;
@@ -22,7 +22,7 @@ const Orm = {
       );
     },
     burgerInsert: function(burgerName, isDevoured) {
-        var queryString = "INSERT INTO burgers (burger_name, devoured) VALUES (??, ??);";
+        var queryString = "INSERT INTO burgers (burger_name, devoured) VALUES (?, ?);";
         connection.query(queryString, [burgerName, isDevoured], function(err, result) {
           if (err) throw err;
           return result;
