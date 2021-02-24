@@ -1,23 +1,25 @@
 var mysql = require("mysql");
 
-var Connection = () => mysql.createConnection({
-  host: "localhost",
+var connection =  mysql.createConnection({
+  host: "l0ebsc9jituxzmts.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
 
   // Your port; if not 3306
   port: 3306,
 
   // Your username
-  user: "root",
+  user: "k2umomy1cpwmfgig",
 
   // Your password
-  password: "Th1sS3rv3rR0cks",
-  database: "burgers_db"
+  password: "jrv1n4kf6tybyaaa",
+  database: "pvy07hdihpbzmsmt"
 });
 
 connection.connect(function(err) {
-    if (err) throw err;
-    console.log("connected as id " + connection.threadId + "\n");
-    createProduct();
+  if (err) {
+    console.error("error connecting: " + err.stack);
+    return;
+  }
+  console.log("connected as id " + connection.threadId);
   });
 
-module.exports = Connection;
+module.exports = connection;
