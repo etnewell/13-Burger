@@ -5,7 +5,7 @@
   "homepage": "https://burger-devour-app-13-mvc.herokuapp.com",
   "main": "index.js",
   "scripts": {
-    "start": "npm start",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
